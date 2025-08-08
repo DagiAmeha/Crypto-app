@@ -13,6 +13,7 @@ class CryptoDataModel {
   double? circulatingSupply;
   double? ath;
   double? atl;
+  bool addedToWishlist = false;
 
   CryptoDataModel({
     required this.id,

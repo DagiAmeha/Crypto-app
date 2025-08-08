@@ -92,20 +92,33 @@ class _SpecificCryptoScreenState extends State<SpecificCryptoScreen> {
               ),
               actions: [
                 IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.bookmark_border, color: Colors.white),
+                  onPressed: () {
+                    cryptoData.updateWishlist(
+                      cryptoData.currentCrypto!.id!,
+                      cryptoData.currentCrypto!,
+                    );
+                  },
+                  icon: Icon(
+                    cryptoData.wishlist.contains(
+                              cryptoData.currentCrypto!.id!,
+                            ) ==
+                            true
+                        ? Icons.bookmark
+                        : Icons.bookmark_border,
+                    color: Colors.white,
+                  ),
                 ),
               ],
 
               title: Row(
                 children: [
                   CircleAvatar(
-                    child: Image.network(cryptoData.currentCrypto.image!),
+                    child: Image.network(cryptoData.currentCrypto!.image!),
                   ),
                   SizedBox(width: 2.w),
 
                   Text(
-                    cryptoData.currentCrypto.name!,
+                    cryptoData.currentCrypto!.name!,
                     style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
                       fontSize: 20,

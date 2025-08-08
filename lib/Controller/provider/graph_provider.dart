@@ -1,5 +1,4 @@
 import 'package:crypto_app/Controller/service/get_market_data.dart';
-import 'package:crypto_app/Model/crypto_data_model.dart';
 import 'package:crypto_app/Model/crypto_graph_data_model.dart';
 import 'package:flutter/material.dart';
 

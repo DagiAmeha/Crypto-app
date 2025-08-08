@@ -1,5 +1,6 @@
 import 'package:crypto_app/Controller/provider/crypto_provider.dart';
 import 'package:crypto_app/Model/crypto_data_model.dart';
+import 'package:crypto_app/View/widgets/crypto_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:provider/provider.dart';
@@ -45,32 +46,7 @@ class _CryptoListingScreenState extends State<CryptoListingScreen> {
                         itemBuilder: (context, index) {
                           CryptoDataModel currentCryptoData =
                               cryptProvider.cryptoData[index];
-                          return ListTile(
-                            contentPadding: EdgeInsets.zero,
-                            leading: CircleAvatar(
-                              radius: 5.w,
-                              backgroundColor: Colors.white12,
-                              child: Image.network(currentCryptoData.image!),
-                            ),
-                            title: Text(
-                              currentCryptoData.name!,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            trailing: Text(
-                              currentCryptoData.currentPrice!.toStringAsFixed(
-                                2,
-                              ),
-                              style: TextStyle(
-                                color: currentCryptoData.priceChange24! > 0
-                                    ? Colors.green
-                                    : Colors.red,
-                              ),
-                            ),
-                          );
+                          return CryptoTile(crypto: currentCryptoData);
                         },
                       );
                     }
